@@ -1,0 +1,49 @@
+
+[ DB > MYSQL > METADATA ]
+
+STRUCTURAL INFO
+###############
+
+Databases
+=========
+
+information_schema            // MySQL metadata
+
+Tables
+======
+
+information_schema.columns    // Info about tables
+
+Columns
+=======
+
+information_schema.columns
+--------------------------
+table_schema          // Database
+table_name
+ordinal_position      // Column position in table
+column_name
+column_type
+is_nullable
+column_key            // PRI key, etc.
+column_default
+extra                 // auto_increment, etc.
+
+Commands
+========
+
+To help with SQLi
+-----------------
+
+Get a list of all the tables for a database as a single field:
+select group_concat(distinct '\n', table_name) from information_schema.columns where table_schema = '<database_name>';
+
+Get all the column names and types for a table as a single field:
+select group_concat('\n', column_name, ' ', column_type) from information_schema.columns where table_schema = '<database_name>' and table_name = '<table_name>';
+
+Exploratory
+-----------
+
+Select table info instead of using desc:
+select table_schema, table_name, ordinal_position, column_name, column_type, is_nullable, column_key, column_default, extra from information_schema.columns where table_schema = '<database_name>' and table_name = '<table_name>';
+
