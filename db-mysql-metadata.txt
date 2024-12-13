@@ -26,7 +26,7 @@ column_name
 column_type
 is_nullable
 column_key            // PRI key, etc.
-column_default
+column_default        // Default field value
 extra                 // auto_increment, etc.
 
 Commands
