@@ -1,0 +1,19 @@
+
+[ WEB > TECHNIQUES LIST ]
+
+  Cross-Site Scripting
+  Open Redirects
+  Clickjacking
+  Cross-Site Request Forgery
+  Insecure Direct Object References
+  SQL Injection
+  Race Conditions
+  Server-Side Request Forgery
+  Insecure Deserialization
+  XML External Entity
+  Template Injection
+  Application Logic Errors and Broken Access Control
+  Remote Code Execution
+  Same-Origin Policy Vulnerabilities
+  Single-Sign-On Security Issues
+  Information Disclosure
