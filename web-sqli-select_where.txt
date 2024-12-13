@@ -1,5 +1,5 @@
 
-[ SELECT WHERE ]
+[ WEB > SQLI > SELECT WHERE ]
 
 Code reads data from table, and allows user input for where clause.
 
