@@ -1,0 +1,18 @@
+
+[ LAB > MYSQL > SETUP ]
+
+Install MariaDB for a FOSS option.
+
+create database test_db;
+use test_db;
+create table user (
+  id int not null auto_increment,
+  email varchar(50) not null,
+  password varchar(50) not null,
+  is_admin tinyint(1) not null default 0,
+  comment varchar(100),
+  primary key (id)
+);
+insert into user values
+(null, 'admin@email.test', 'badpass1', 1, 'admin comment'),
+(null, 'user@email.test', 'badpass2', 0, 'user comment');
