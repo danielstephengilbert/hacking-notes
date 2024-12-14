@@ -1,0 +1,6 @@
+
+[ DB > MYSQL > ENUMERATION ]
+
+Get the MySQL version (use in select statement, e.g., where or union select):
+@@version
+
