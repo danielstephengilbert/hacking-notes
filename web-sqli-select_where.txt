@@ -1,10 +1,16 @@
 
 [ WEB > SQLI > SELECT WHERE ]
 
-Code reads data from table, and allows user input for where clause.
+Vuln
+####
+
+Code reads data from table, and allows unprotected user input for where clause.
 
 URL:      route?<key1>=<val1>&<key2>=<val2>
 MySQL:    SELECT * FROM <table> WHERE <key1> = '<val1>' AND <key2> = '<val2>';
+
+Exploit
+#######
 
 Tips:
 - DON'T dump all the rows unless you know the table is small. Use a limiter.
