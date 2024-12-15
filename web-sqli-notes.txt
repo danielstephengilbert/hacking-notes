@@ -6,8 +6,18 @@
 - If having issues with --, use -- - instead to prevent the first symbol from
   being trimmed.
 - Sometimes you have to mess with the comment.
-  E.g., In some cases union select null -- may work
-        Else, try union select null -- -
-        Else, try union select null--
-        etc.
-        (Just depends on the code)
+  Try in the following order:
+  union select null--
+  union select null --
+  union select null -- -
+- When enumerating an app usuing union select,
+  start using null field values.
+  Once you have the field account (assuming all fields allow null),
+  enumerate each field position one by one using a string
+  to see which ones allow strings.
+  E.g.,
+  union select null,null,null--
+  union select 'a',null,null--
+  union select null,'a',null--
+  etc.
+
