@@ -12,7 +12,8 @@ information_schema            // MySQL metadata
 Tables
 ======
 
-information_schema.columns    // Info about tables
+information_schema.tables     // Info about tables
+information_schema.columns    // Info about table data
 
 Columns
 =======
