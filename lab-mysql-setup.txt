@@ -16,3 +16,26 @@ create table user (
 insert into user values
 (null, 'admin@email.test', 'badpass1', 1, 'admin comment'),
 (null, 'user@email.test', 'badpass2', 0, 'user comment');
+
+
+create table api_token (
+  id int not null auto_increment,
+  service_name varchar(50) not null,
+  api_token varchar(500) not null,
+  primary key (id)
+);
+insert into api_token values
+(null, 'Microsoft Graph', 'json_token_val_12345'),
+(null, 'Shodan', 'json_token_val_67890');
+
+
+create table profile (
+  id int not null auto_increment,
+  username varchar(50) not null,
+  bio text,
+  primary key (id)
+);
+insert into profile values
+(null, 'bossman', 'i am the boss, revel in my greatness!'),
+(null, 'standarduser123', 'i am but a mere user. i am a mortal, unlike the boss man...');
+
