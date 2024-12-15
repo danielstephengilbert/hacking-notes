@@ -5,4 +5,9 @@
 - Hash comment doesn't work in my experience for MySQL.
 - If having issues with --, use -- - instead to prevent the first symbol from
   being trimmed.
-
+- Sometimes you have to mess with the comment.
+  E.g., In some cases union select null -- may work
+        Else, try union select null -- -
+        Else, try union select null--
+        etc.
+        (Just depends on the code)
