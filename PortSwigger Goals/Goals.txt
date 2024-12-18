@@ -20,6 +20,7 @@ SQL Injection
 Cross-Site Scripting
 
 10. Reflected XSS into HTML context with nothing encoded
+11. GitHub sucks... old values retained from last commit... Testing 123..
 11. Stored XSS into HTML context with nothing encoded
 12. DOM XSS in document.write sink using source location.search
 13. DOM XSS in innerHTML sink using source location.search
