@@ -9,7 +9,7 @@ SQL Injection
 
 [ COMPLETE ] 1.  SQL injection attack, querying the database type and version on Oracle
 [ COMPLETE ] 2.  SQL injection attack, listing the database contents on Oracle
-3.  Blind SQL injection with conditional errors
+[ COMPLETE ] 3.  Blind SQL injection with conditional errors
 4.  Visible error-based SQL injection
 5.  Blind SQL injection with time delays
 6.  Blind SQL injection with time delays and information retrieval
