@@ -1,0 +1,5 @@
+
+[ PRO TIPS ]
+
+- When taking notes, just literally copy the payloads from your web labs and paste them into your notes. Don't go crazy trying to make your notes super general. They're ironically less useful that way.
+
