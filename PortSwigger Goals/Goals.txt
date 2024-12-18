@@ -20,6 +20,7 @@ SQL Injection
 Cross-Site Scripting
 
 10. Reflected XSS into HTML context with nothing encoded
+11. Stored XSS into HTML context with nothing encoded
 no text... please work.
 12. DOM XSS in document.write sink using source location.search
 11. Stored XSS into HTML context with nothing encoded
