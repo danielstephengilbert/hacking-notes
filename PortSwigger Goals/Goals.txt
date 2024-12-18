@@ -21,7 +21,6 @@ Cross-Site Scripting
 
 10. Reflected XSS into HTML context with nothing encoded
 11. Stored XSS into HTML context with nothing encoded
-11. Stored XSS into HTML context with nothing encoded
 12. DOM XSS in document.write sink using source location.search
 13. DOM XSS in innerHTML sink using source location.search
 14. DOM XSS in jQuery anchor href attribute sink using location.search source
