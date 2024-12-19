@@ -13,9 +13,9 @@ SQL Injection
 [ COMPLETE ] 4.  Visible error-based SQL injection
 [ COMPLETE ] 5.  Blind SQL injection with time delays
 [ COMPLETE ] 6.  Blind SQL injection with time delays and information retrieval
-7.  Blind SQL injection with out-of-band interaction
-8.  Blind SQL injection with out-of-band data exfiltration
-9.  SQL injection with filter bypass via XML encoding
+[ BPRO REQ ] 7.  Blind SQL injection with out-of-band interaction
+[ BPRO REQ ] 8.  Blind SQL injection with out-of-band data exfiltration
+[ COMPLETE ] 9.  SQL injection with filter bypass via XML encoding
 
 Cross-Site Scripting
 
@@ -33,6 +33,35 @@ Cross-Site Scripting
 
 
 2.  2024-12-19 Thursday
+
+Cross Site Scripting
+
+1.  Reflected DOM XSS
+2.  Stored DOM XSS
+3.  Reflected XSS into HTML context with most tags and attributes blocked
+4.  Reflected XSS into HTML context with all tags blocked except custom ones
+5.  Reflected XSS with some SVG markup allowed
+6.  Reflected XSS in canonical link tag
+7.  Reflected XSS into a JavaScript string with single quote and backslash escaped
+8.  Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped
+9.  Stored XSS into onclick event with angle brackets and double quotes HTML-encoded and single quotes and backslash escaped
+10. Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped
+11. Exploiting cross-site scripting to steal cookies
+12. Exploiting cross-site scripting to capture passwords
+13. Exploiting XSS to bypass CSRF defenses
+14. Reflected XSS with AngularJS sandbox escape without strings
+15. Reflected XSS with AngularJS sandbox escape and CSP
+16. Reflected XSS with event handlers and href attributes blocked
+17. Reflected XSS in a JavaScript URL with some characters blocked
+18. Reflected XSS protected by very strict CSP, with dangling markup attack
+19. Reflected XSS protected by CSP, with CSP bypass
+
+Cross-Site Request Forgery
+
+20. CSRF vulnerability with no defenses
+
+===
+
 3.  2024-12-20 Friday
 4.  2024-12-21 Saturday
 5.  2024-12-22 Sunday
