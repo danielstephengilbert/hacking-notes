@@ -11,7 +11,7 @@ SQL Injection
 [ COMPLETE ] 2.  SQL injection attack, listing the database contents on Oracle
 [ COMPLETE ] 3.  Blind SQL injection with conditional errors
 [ COMPLETE ] 4.  Visible error-based SQL injection
-5.  Blind SQL injection with time delays
+[ COMPLETE ] 5.  Blind SQL injection with time delays
 6.  Blind SQL injection with time delays and information retrieval
 7.  Blind SQL injection with out-of-band interaction
 8.  Blind SQL injection with out-of-band data exfiltration
