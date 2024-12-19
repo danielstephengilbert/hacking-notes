@@ -12,7 +12,7 @@ SQL Injection
 [ COMPLETE ] 3.  Blind SQL injection with conditional errors
 [ COMPLETE ] 4.  Visible error-based SQL injection
 [ COMPLETE ] 5.  Blind SQL injection with time delays
-6.  Blind SQL injection with time delays and information retrieval
+[ COMPLETE ] 6.  Blind SQL injection with time delays and information retrieval
 7.  Blind SQL injection with out-of-band interaction
 8.  Blind SQL injection with out-of-band data exfiltration
 9.  SQL injection with filter bypass via XML encoding
