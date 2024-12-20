@@ -1,0 +1,11 @@
+
+[ WEB > XSS > STORED DOM ]
+
+// web app allows posting comments
+// comments appear to be unfiltered.
+// however, when loading the comments, client-side javascript filters them
+// part of the code replaces angle brackets:
+// return html.replace('<', '&lt;').replace('>', '&gt;');
+// the code was poorly implemented, so it only replaces the first instances of the brackets...
+// can use this to match the brackets, then inject:
+<><img src=1 onerror=alert(1)>
