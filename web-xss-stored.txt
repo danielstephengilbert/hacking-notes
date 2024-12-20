@@ -1,0 +1,6 @@
+
+[ WEB > XSS > STORED ]
+
+// Big surprise. Just like reflected, but persistent via web app storage.
+<script>alert(1)</script>
+
