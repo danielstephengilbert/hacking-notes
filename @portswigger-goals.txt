@@ -29,7 +29,7 @@ Cross-Site Scripting
 [ COMPLETE ] 17. Stored XSS into anchor href attribute with double quotes HTML-encoded
 [ COMPLETE ] 18. Reflected XSS into a JavaScript string with angle brackets HTML encoded
 [ COMPLETE ] 19. DOM XSS in document.write sink using source location.search inside a select element
-20. DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded
+[ COMPLETE ] 20. DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded
 
 
 2.  2024-12-19 Thursday
