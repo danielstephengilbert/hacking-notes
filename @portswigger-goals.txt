@@ -24,7 +24,7 @@ Cross-Site Scripting
 [ COMPLETE ] 12. DOM XSS in document.write sink using source location.search
 [ COMPLETE ] 13. DOM XSS in innerHTML sink using source location.search
 [ COMPLETE ] 14. DOM XSS in jQuery anchor href attribute sink using location.search source
-15. DOM XSS in jQuery selector sink using a hashchange event
+[ COMPLETE ] 15. DOM XSS in jQuery selector sink using a hashchange event
 16. Reflected XSS into attribute with angle brackets HTML-encoded
 17. Stored XSS into anchor href attribute with double quotes HTML-encoded
 18. Reflected XSS into a JavaScript string with angle brackets HTML encoded
