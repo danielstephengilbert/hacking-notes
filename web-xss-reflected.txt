@@ -1,0 +1,6 @@
+
+[ WEB > XSS > REFLECTED ]
+
+// classic....
+<script>alert(1)</script>
+
