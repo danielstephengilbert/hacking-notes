@@ -40,7 +40,7 @@ Cross Site Scripting
 [ COMPLETE ] 2.  Stored DOM XSS
 [ COMPLETE ] 3.  Reflected XSS into HTML context with most tags and attributes blocked
 [ COMPLETE ] 4.  Reflected XSS into HTML context with all tags blocked except custom ones
-5.  Reflected XSS with some SVG markup allowed
+[ COMPLETE ] 5.  Reflected XSS with some SVG markup allowed
 6.  Reflected XSS in canonical link tag
 7.  Reflected XSS into a JavaScript string with single quote and backslash escaped
 8.  Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped
