@@ -4,3 +4,11 @@
 // Big surprise. Just like reflected, but persistent via web app storage.
 <script>alert(1)</script>
 
+===
+
+// gettin more creative kinda...
+// we notice that a url field in the comments section gets stored as a link associated with the user
+// inject some js...
+// this url will simply trigger/execute javascript from the browser url bar.
+javascript:alert(1)
+
