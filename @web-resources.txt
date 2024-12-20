@@ -4,6 +4,9 @@
 portswigger labs
 https://portswigger.net/web-security/all-labs
 
+portswigger sqli cheet sheet
+https://portswigger.net/web-security/sql-injection/cheat-sheet
+
 portswigger xss cheet sheet
 https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
 
