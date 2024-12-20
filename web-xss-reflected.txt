@@ -16,4 +16,20 @@
 // <input type="text" placeholder="Search the blog..." name="search" value=""onmouseover="alert(1)">
 // and for some reason, no space is required between attributes after quote...
 
+===
+
+// in this case, user input gets reflected in javascript in the source.
+// e.g.,
+// <script>
+//   var searchTerms = 'test123';
+//   document.write('<img src="/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'">');
+// </script>
+// inject directly into the script:
+'-alert(1)-'
+
+// results in:
+var searchTerms = ''-alert(1)-'';
+
+
+
 
