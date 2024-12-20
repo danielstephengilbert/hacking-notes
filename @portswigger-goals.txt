@@ -37,7 +37,7 @@ Cross-Site Scripting
 Cross Site Scripting
 
 [ COMPLETE ] 1.  Reflected DOM XSS
-2.  Stored DOM XSS
+[ COMPLETE ] 2.  Stored DOM XSS
 3.  Reflected XSS into HTML context with most tags and attributes blocked
 4.  Reflected XSS into HTML context with all tags blocked except custom ones
 5.  Reflected XSS with some SVG markup allowed
