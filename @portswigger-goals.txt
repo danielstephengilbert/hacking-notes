@@ -31,6 +31,7 @@ Cross-Site Scripting
 [ COMPLETE ] 19. DOM XSS in document.write sink using source location.search inside a select element
 [ COMPLETE ] 20. DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded
 
+-------------------------------------------------------------------------------
 
 2.  2024-12-19 Thursday
 
@@ -60,9 +61,42 @@ Cross-Site Request Forgery
 
 20. CSRF vulnerability with no defenses
 
-===
+-------------------------------------------------------------------------------
 
 3.  2024-12-20 Friday
+
+Cross-Site Request Forgery
+
+1.  CSRF where token validation depends on request method
+2.  CSRF where token validation depends on token being present
+3.  CSRF where token is not tied to user session
+4.  CSRF where token is tied to non-session cookie
+5.  CSRF where token is duplicated in cookie
+6.  SameSite Lax bypass via method override
+7.  SameSite Strict bypass via client-side redirect
+8.  SameSite Strict bypass via sibling domain
+9.  SameSite Lax bypass via cookie refresh
+10. CSRF where Referer validation depends on header being present
+11. CSRF with broken Referer validation
+
+Clickjacking
+
+12. Basic clickjacking with CSRF token protection
+13. Clickjacking with form input data prefilled from a URL parameter
+14. Clickjacking with a frame buster script
+15. Exploiting clickjacking vulnerability to trigger DOM-based XSS
+16. Multistep clickjacking
+
+DOM-Based Vulns
+
+17. DOM XSS using web messages
+18. DOM XSS using web messages and a JavaScript URL
+19. DOM XSS using web messages and JSON.parse
+20. DOM-based open redirection
+
+
+===
+
 4.  2024-12-21 Saturday
 5.  2024-12-22 Sunday
 6.  2024-12-23 Monday
@@ -75,3 +109,4 @@ Cross-Site Request Forgery
 12. 2024-12-30 Monday
 13. 2024-12-31 Tuesday
 14. 2025-01-01 Wednesday, ALL PORTSWIGGER COMPLETE :)
+
