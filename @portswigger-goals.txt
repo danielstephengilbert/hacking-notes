@@ -26,8 +26,8 @@ Cross-Site Scripting
 [ COMPLETE ] 14. DOM XSS in jQuery anchor href attribute sink using location.search source
 [ COMPLETE ] 15. DOM XSS in jQuery selector sink using a hashchange event
 [ COMPLETE ] 16. Reflected XSS into attribute with angle brackets HTML-encoded
-17. Stored XSS into anchor href attribute with double quotes HTML-encoded
-18. Reflected XSS into a JavaScript string with angle brackets HTML encoded
+[ COMPLETE ] 17. Stored XSS into anchor href attribute with double quotes HTML-encoded
+[ COMPLETE ] 18. Reflected XSS into a JavaScript string with angle brackets HTML encoded
 19. DOM XSS in document.write sink using source location.search inside a select element
 20. DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded
 
