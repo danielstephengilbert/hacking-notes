@@ -50,8 +50,8 @@ Cross Site Scripting
 [ BPRO REQ ] 11. Exploiting cross-site scripting to steal cookies
 [ BPRO REQ ] 12. Exploiting cross-site scripting to capture passwords
 [ COMPLETE ] 13. Exploiting XSS to bypass CSRF defenses
-14. Reflected XSS with AngularJS sandbox escape without strings
-15. Reflected XSS with AngularJS sandbox escape and CSP
+[ COMPLETE ] 14. Reflected XSS with AngularJS sandbox escape without strings
+[ COMPLETE ] 15. Reflected XSS with AngularJS sandbox escape and CSP
 16. Reflected XSS with event handlers and href attributes blocked
 17. Reflected XSS in a JavaScript URL with some characters blocked
 18. Reflected XSS protected by very strict CSP, with dangling markup attack
