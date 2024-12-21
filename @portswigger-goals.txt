@@ -42,14 +42,14 @@ Cross Site Scripting
 [ COMPLETE ] 3.  Reflected XSS into HTML context with most tags and attributes blocked
 [ COMPLETE ] 4.  Reflected XSS into HTML context with all tags blocked except custom ones
 [ COMPLETE ] 5.  Reflected XSS with some SVG markup allowed
-6.  Reflected XSS in canonical link tag
-7.  Reflected XSS into a JavaScript string with single quote and backslash escaped
-8.  Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped
-9.  Stored XSS into onclick event with angle brackets and double quotes HTML-encoded and single quotes and backslash escaped
-10. Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped
-11. Exploiting cross-site scripting to steal cookies
-12. Exploiting cross-site scripting to capture passwords
-13. Exploiting XSS to bypass CSRF defenses
+[ COMPLETE ] 6.  Reflected XSS in canonical link tag
+[ COMPLETE ] 7.  Reflected XSS into a JavaScript string with single quote and backslash escaped
+[ COMPLETE ] 8.  Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped
+[ COMPLETE ] 9.  Stored XSS into onclick event with angle brackets and double quotes HTML-encoded and single quotes and backslash escaped
+[ COMPLETE ] 10. Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped
+[ BPRO REQ ] 11. Exploiting cross-site scripting to steal cookies
+[ BPRO REQ ] 12. Exploiting cross-site scripting to capture passwords
+[ COMPLETE ] 13. Exploiting XSS to bypass CSRF defenses
 14. Reflected XSS with AngularJS sandbox escape without strings
 15. Reflected XSS with AngularJS sandbox escape and CSP
 16. Reflected XSS with event handlers and href attributes blocked
