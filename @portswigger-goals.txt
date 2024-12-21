@@ -54,8 +54,8 @@ Cross Site Scripting
 [ COMPLETE ] 15. Reflected XSS with AngularJS sandbox escape and CSP
 [ COMPLETE ] 16. Reflected XSS with event handlers and href attributes blocked
 [ COMPLETE ] 17. Reflected XSS in a JavaScript URL with some characters blocked
-18. Reflected XSS protected by very strict CSP, with dangling markup attack
-19. Reflected XSS protected by CSP, with CSP bypass
+[ BPRO REQ ] 18. Reflected XSS protected by very strict CSP, with dangling markup attack
+[ COMPLETE ] 19. Reflected XSS protected by CSP, with CSP bypass
 
 Cross-Site Request Forgery
 
