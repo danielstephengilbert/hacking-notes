@@ -81,8 +81,8 @@ Will still try to complete all challenges by January 1st, 2025.
 
 Clickjacking
 
-3.  Basic clickjacking with CSRF token protection
-4.  Clickjacking with form input data prefilled from a URL parameter
+[ COMPLETE ] 3.  Basic clickjacking with CSRF token protection
+[ COMPLETE ] 4.  Clickjacking with form input data prefilled from a URL parameter
 5.  Clickjacking with a frame buster script
 
 DOM-Based Vulns
