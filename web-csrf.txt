@@ -1,5 +1,5 @@
 
-[ WeB > CSRF > NO DEFENSES ]
+[ WeB > CSRF ]
 
 CSRF vulnerability with no defenses
 
