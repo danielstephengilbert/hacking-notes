@@ -69,38 +69,252 @@ Cross-Site Request Forgery
 
 [ COMPLETE ] 1.  CSRF where token validation depends on request method
 [ COMPLETE ] 2.  CSRF where token validation depends on token being present
-3.  CSRF where token is not tied to user session
-4.  CSRF where token is tied to non-session cookie
-5.  CSRF where token is duplicated in cookie
-6.  SameSite Lax bypass via method override
-7.  SameSite Strict bypass via client-side redirect
-8.  SameSite Strict bypass via sibling domain
-9.  SameSite Lax bypass via cookie refresh
-10. CSRF where Referer validation depends on header being present
-11. CSRF with broken Referer validation
+
+PAUSE. I'm 3 days behind... Had kind of a rough time that stalled my progress.
+Will make sure I at least cover the basics from each category.
+Will make iterations over each difficulty level.
+Will still try to complete all challenges by January 1st, 2025.
 
 Clickjacking
 
-12. Basic clickjacking with CSRF token protection
-13. Clickjacking with form input data prefilled from a URL parameter
-14. Clickjacking with a frame buster script
-15. Exploiting clickjacking vulnerability to trigger DOM-based XSS
-16. Multistep clickjacking
+3.  Basic clickjacking with CSRF token protection
+4.  Clickjacking with form input data prefilled from a URL parameter
+5.  Clickjacking with a frame buster script
 
 DOM-Based Vulns
 
-17. DOM XSS using web messages
-18. DOM XSS using web messages and a JavaScript URL
-19. DOM XSS using web messages and JSON.parse
-20. DOM-based open redirection
+6.  DOM XSS using web messages
+7.  DOM XSS using web messages and a JavaScript URL
+8.  DOM XSS using web messages and JSON.parse
+
+Cross-Origin Resource Sharing (CORS)
+
+9.  CORS vulnerability with basic origin reflection
+10. CORS vulnerability with trusted null origin
+11. CORS vulnerability with trusted insecure protocols
+
+XML External Entity (XXE) Injection
+
+12. Exploiting XXE using external entities to retrieve files
+13. Exploiting XXE to perform SSRF attacks
+14. Blind XXE with out-of-band interaction
+
+Server-Side Request Forgery (SSRF)
+
+15. Basic SSRF against the local server
+16. Basic SSRF against another back-end system
+17. Blind SSRF with out-of-band detection
+
+HTTP Request Smuggling
+
+18. HTTP request smuggling, confirming a CL.TE vulnerability via differential responses
+19. HTTP request smuggling, confirming a TE.CL vulnerability via differential responses
+20. Exploiting HTTP request smuggling to bypass front-end security controls, CL.TE vulnerability
+
+-------------------------------------------------------------------------------
+
+4.  2024-12-21 Saturday
+
+OS Command Injection
+
+1.  OS command injection, simple case
+2.  Blind OS command injection with time delays
+3.  Blind OS command injection with output redirection
+
+Server-Side Template Injection
+
+4.  Basic server-side template injection
+5.  Basic server-side template injection (code context)
+6.  Server-side template injection using documentation
+
+Path Traversal
+
+7.  File path traversal, simple case
+8.  File path traversal, traversal sequences blocked with absolute path bypass
+9.  File path traversal, traversal sequences stripped non-recursively
+
+Access Control Vulns
+
+10. Unprotected admin functionality
+11. Unprotected admin functionality with unpredictable URL
+12. User role controlled by request parameter
+13. User role can be modified in user profile
+14. User ID controlled by request parameter 
+15. User ID controlled by request parameter, with unpredictable user IDs 
+16. User ID controlled by request parameter with data leakage in redirect 
+17. User ID controlled by request parameter with password disclosure
+18. Insecure direct object references
+
+Authentication
+
+19. Username enumeration via different responses
+20. 2FA simple bypass
+
+-------------------------------------------------------------------------------
+
+5.  2024-12-22 Sunday
+
+Authentication
+
+1.  Password reset broken logic
+
+WebSockets
+
+2.  Manipulating WebSocket messages to exploit vulnerabilities
+3.  Cross-site WebSocket hijacking
+4.  Manipulating the WebSocket handshake to exploit vulnerabilities
+
+Web Cache Poisoning
+
+5.  Web cache poisoning with an unkeyed header
+6.  Web cache poisoning with an unkeyed cookie
+7.  Web cache poisoning with multiple headers
+
+Insecure Deserialization
+
+8.  Modifying serialized objects
+9.  Modifying serialized data types
+10. Using application functionality to exploit insecure deserialization
+
+Information Disclosure
+
+11. Information disclosure in error messages
+12. Information disclosure on debug page
+13. Source code disclosure via backup files
+14. Authentication bypass via information disclosure
+
+Business Logic Vulns
+
+15. Excessive trust in client-side controls
+16. High-level logic vulnerability
+17. Inconsistent security controls
+18. Flawed enforcement of business rules
+
+HTTP Host Header Attacks
+
+19. Basic password reset poisoning
+20. Host header authentication bypass
+
+-------------------------------------------------------------------------------
+
+6.  2024-12-23 Monday
+
+OAuth Authentication
+
+1.  Authentication bypass via OAuth implicit flow
+2.  SSRF via OpenID dynamic client registration
+3.  Forced OAuth profile linking
+
+File Upload Vulns
+
+4.  Remote code execution via web shell upload
+5.  Web shell upload via Content-Type restriction bypass
+6.  Web shell upload via path traversal
+
+JWT
+
+7.  JWT authentication bypass via unverified signature
+8.  JWT authentication bypass via flawed signature verification
+9.  JWT authentication bypass via weak signing key
+
+Essential Skills
+
+10. Discovering vulnerabilities quickly with targeted scanning
+11. Scanning non-standard data structures
+
+Prototype Pollution
+
+12. Client-side prototype pollution via browser APIs
+13. DOM XSS via client-side prototype pollution
+14. DOM XSS via an alternative prototype pollution vector
+
+GraphQL API Vulns
+
+15. Accessing private GraphQL posts
+16. Accidental exposure of private GraphQL fields
+17. Finding a hidden GraphQL endpoint
+
+Race Conditions
+
+18. Limit overrun race conditions
+19. Bypassing rate limits via race conditions
+20. Multi-endpoint race conditions
+
+-------------------------------------------------------------------------------
+
+7.  2024-12-24 Tuesday
+
+NoSQL Injection
+
+1.  Detecting NoSQL injection
+2.  Exploiting NoSQL operator injection to bypass authentication
+3.  Exploiting NoSQL injection to extract data
+
+API Testing
+
+4.  Exploiting an API endpoint using documentation
+5.  Exploiting server-side parameter pollution in a query string
+6.  Finding and exploiting an unused API endpoint
+
+Web LLM Attacks
+
+7.  Exploiting LLM APIs with excessive agency
+8.  Exploiting vulnerabilities in LLM APIs
+9.  Indirect prompt injection
+
+Web Cache Deception
+
+10. Exploiting path mapping for web cache deception
+11. Exploiting path delimiters for web cache deception
+12. Exploiting origin server normalization for web cache deception
+
+**********
+
+Okay, done with all the "Apprentice" modules and some "Practitioner" modules.
+Will loop back around to finish other incomplete "Practitioner" modules...
+
+(At this point, build the rest of this plan...)
+
+**********
+
+13. 
+14. 
+15. 
+16. 
+17. 
+18. 
+19. 
+20. 
 
 
 ===
 
-4.  2024-12-21 Saturday
-5.  2024-12-22 Sunday
-6.  2024-12-23 Monday
-7.  2024-12-24 Tuesday
+Numbered Exercise Template 1-20:
+1.  
+2.  
+3.  
+4.  
+5.  
+6.  
+7.  
+8.  
+9.  
+10. 
+11. 
+12. 
+13. 
+14. 
+15. 
+16. 
+17. 
+18. 
+19. 
+20. 
+
+
+
+===
+
 --  2024-12-25 Wednesday, CHRISTMAS WITH FAMILY (no training)
 8.  2024-12-26 Thursday
 9.  2024-12-27 Friday
