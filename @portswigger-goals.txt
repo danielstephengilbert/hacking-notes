@@ -70,10 +70,14 @@ Cross-Site Request Forgery
 [ COMPLETE ] 1.  CSRF where token validation depends on request method
 [ COMPLETE ] 2.  CSRF where token validation depends on token being present
 
+**********
+
 PAUSE. I'm 3 days behind... Had kind of a rough time that stalled my progress.
 Will make sure I at least cover the basics from each category.
 Will make iterations over each difficulty level.
 Will still try to complete all challenges by January 1st, 2025.
+
+**********
 
 Clickjacking
 
