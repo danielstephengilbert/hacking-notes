@@ -59,7 +59,7 @@ Cross Site Scripting
 
 Cross-Site Request Forgery
 
-20. CSRF vulnerability with no defenses
+[ COMPLETE ] 20. CSRF vulnerability with no defenses
 
 -------------------------------------------------------------------------------
 
