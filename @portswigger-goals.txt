@@ -93,7 +93,7 @@ DOM-Based Vulns
 
 Cross-Origin Resource Sharing (CORS)
 
-9.  CORS vulnerability with basic origin reflection
+[ COMPLETE ] 9.  CORS vulnerability with basic origin reflection
 10. CORS vulnerability with trusted null origin
 11. CORS vulnerability with trusted insecure protocols
 
