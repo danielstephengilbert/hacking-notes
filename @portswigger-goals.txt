@@ -89,7 +89,7 @@ DOM-Based Vulns
 
 [ COMPLETE ] 6.  DOM XSS using web messages
 [ COMPLETE ] 7.  DOM XSS using web messages and a JavaScript URL
-8.  DOM XSS using web messages and JSON.parse
+[ COMPLETE ] 8.  DOM XSS using web messages and JSON.parse
 
 Cross-Origin Resource Sharing (CORS)
 
