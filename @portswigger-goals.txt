@@ -94,7 +94,7 @@ DOM-Based Vulns
 Cross-Origin Resource Sharing (CORS)
 
 [ COMPLETE ] 9.  CORS vulnerability with basic origin reflection
-10. CORS vulnerability with trusted null origin
+[ COMPLETE ] 10. CORS vulnerability with trusted null origin
 11. CORS vulnerability with trusted insecure protocols
 
 XML External Entity (XXE) Injection
